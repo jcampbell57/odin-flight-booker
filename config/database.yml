@@ -21,7 +21,7 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-  username: jcampbell57 # role previously added
+  username: jcampbell # role previously added
   password: <%= ENV['DATABASE_PASSWORD'] %> # variable previously added
 
 
