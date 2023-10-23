@@ -68,5 +68,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
 end
+
+gem 'simple_form'
+# needed by simple-form
+gem 'country_select'
