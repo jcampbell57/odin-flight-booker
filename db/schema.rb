@@ -24,14 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_021625) do
     t.integer "duration"
     t.date "date"
     t.time "time"
-    t.bigint "origin_airport_id", null: false
-    t.bigint "destination_airport_id", null: false
+    t.bigint "departure_airport_id", null: false
+    t.bigint "arrival_airport_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["destination_airport_id"], name: "index_flights_on_destination_airport_id"
-    t.index ["origin_airport_id"], name: "index_flights_on_origin_airport_id"
+    t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
+    t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
   end
 
-  add_foreign_key "flights", "airports", column: "destination_airport_id"
-  add_foreign_key "flights", "airports", column: "origin_airport_id"
+  add_foreign_key "flights", "airports", column: "arrival_airport_id"
+  add_foreign_key "flights", "airports", column: "departure_airport_id"
 end

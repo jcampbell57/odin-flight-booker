@@ -4,8 +4,8 @@ class CreateFlights < ActiveRecord::Migration[7.0]
       t.integer :duration
       t.date :date
       t.time :time
-      t.references :origin_airport, null: false, foreign_key: { to_table: :airports }
-      t.references :destination_airport, null: false, foreign_key: { to_table: :airports }
+      t.references :departure_airport, null: false, foreign_key: { to_table: :airports }
+      t.references :arrival_airport, null: false, foreign_key: { to_table: :airports }
 
       t.timestamps
     end
