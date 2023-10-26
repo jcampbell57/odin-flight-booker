@@ -16,3 +16,6 @@ I hope to gain more familiarity with:
 More project info:
 * Ruby version 3.2.2
 * Link to project description: https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker
+
+I found these resources helpful during this project:
+* https://shaqqour.medium.com/how-to-create-a-model-with-two-foreign-keys-references-from-the-same-table-in-rails-1d0ebc744544
