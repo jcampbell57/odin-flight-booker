@@ -15,15 +15,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_021625) do
   enable_extension "plpgsql"
 
   create_table "airports", force: :cascade do |t|
-    t.string "code"
+    t.string "code", null: false
+    t.string "name", null: false
+    t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_airports_on_code", unique: true
   end
 
   create_table "flights", force: :cascade do |t|
-    t.integer "duration"
-    t.date "date"
-    t.time "time"
+    t.integer "duration", null: false
+    t.date "date", null: false
+    t.time "time", null: false
     t.bigint "departure_airport_id", null: false
     t.bigint "arrival_airport_id", null: false
     t.datetime "created_at", null: false
