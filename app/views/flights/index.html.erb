@@ -2,6 +2,7 @@
 
 <h3>search</h3>
 
+<%#= simple_form_for(@flight, url: flights_path, method: :get, local: true) do |f| %>
 <%= simple_form_for(:flight, url: flights_path, method: :get, local: true) do |f| %>
 <%# <%= simple_form_for(:flight, method: :get, local: true) do |f| %>
 <%#= simple_form_for :flight do |f| %>
@@ -17,7 +18,7 @@
 
 <% if @flights %>
 
-<h4><%#= pluralize(@flights.length, 'flight') matched your search %></h4>
+ <h4><%= pluralize(@flights.length, 'flight') %> matched your search</h4>
 
   <table>
     <thead>
@@ -34,15 +35,16 @@
 
     <tbody>
       <% @flights.each do |flight| %>
+      
         <tr>
-          <td><%= flight.formatted_flight_number %></td>
-          <td><%= flight.origin.code %></td>
-          <td><%= flight.destination.code %></td>
-          <td><%= flight.formatted_date %></td>
-          <td><%= flight.formatted_time %></td>
-          <td><%= flight.formatted_duration %></td>
+          <td><%#= flight.formatted_flight_number %></td>
+          <td><%= flight.departure_airport.code %></td>
+          <td><%= flight.arrival_airport.code %></td>
+          <td><%= flight.date %></td>
+          <td><%= flight.time.strftime('%I:%M %p') %></td>
+          <td><%= flight.duration %></td>
           <td class='td-booking'>
-            <%= button_to 'Book Flight',
+            <%#= button_to 'Book Flight',
                 new_booking_path,
                 method: :get,
                 params: { flight_id: flight.id, tickets: params[:flight][:tickets] },

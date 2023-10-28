@@ -32,9 +32,7 @@ FLIGHT_DURATIONS = {
 def random_time
   now = Time.now
   a_day_ago = now - 60 * 60 * 24
-
-  random_time = rand(a_day_ago..now)
-  # random_time.strftime('%I:%M %p')
+  rand(a_day_ago..now)
 end
 
 # not sure if I need this or not.
@@ -57,7 +55,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('airports')
 Airport.create(code: 'SFO', name: 'San Francisco International Airport', city: 'San Francisco')
 Airport.create(code: 'MSY', name: 'Louis Armstrong New Orleans International Airport', city: 'New Orleans')
 Airport.create(code: 'JFK', name: 'John F. Kennedy International Airport', city: 'New York')
-Airport.create(code: 'SEA', name: 'Seattle–Tacoma International Airport', city: 'Seattle / Tacoma')
+Airport.create(code: 'SEA', name: 'Seattle Tacoma International Airport', city: 'Seattle / Tacoma')
 
 Date.today.upto(Date.today + 30.days).each do |potential_date|
   Airport.all.each do |origin_airport|
