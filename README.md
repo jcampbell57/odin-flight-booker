@@ -22,3 +22,15 @@ I found these resources helpful during this project:
 * https://stackoverflow.com/questions/39056615/after-destroying-all-records-why-are-new-objects-being-created-with-an-id-higher
 * https://github.com/andrewjh271/odin_flight_booker/
 * https://chat.openai.com/
+
+Misc terminal setup:
+* rails new odin-flight-booker --database=postgresql
+* add credentials to config/database.yml, then rails db:create
+* bundle install (gem 'simple_form')
+* rails generate simple_form:install 
+* rails g model Airports code:string
+* rails g model Flight duration:integer date:date time:time origin_id:references destination_id:references
+* rails g controller Flights
+* rails g model Booking flight:references
+* rails g model Passenger name:string email:string:index
+* rails g controller Bookings new create show
