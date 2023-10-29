@@ -18,12 +18,11 @@
 
 <% if @flights %>
 
- <h4><%= pluralize(@flights.length, 'flight') %> matched your search</h4>
+  <h4><%= pluralize(@flights.length, 'flight') %> matched your search</h4>
 
   <table>
     <thead>
       <tr>
-        <th>Flight #</th>
         <th>Departs</th>
         <th>Arrives</th>
         <th>Date</th>
@@ -37,7 +36,6 @@
       <% @flights.each do |flight| %>
       
         <tr>
-          <td><%#= flight.formatted_flight_number %></td>
           <td><%= flight.departure_airport.code %></td>
           <td><%= flight.arrival_airport.code %></td>
           <td><%= flight.date %></td>
