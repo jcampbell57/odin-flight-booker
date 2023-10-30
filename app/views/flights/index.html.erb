@@ -42,7 +42,7 @@
           <td><%= flight.time.strftime('%I:%M %p') %></td>
           <td><%= flight.duration %></td>
           <td class='td-booking'>
-            <%#= button_to 'Book Flight',
+            <%= button_to 'Book Flight',
                 new_booking_path,
                 method: :get,
                 params: { flight_id: flight.id, tickets: params[:flight][:tickets] },

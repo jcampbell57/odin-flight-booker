@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Flight #</th>
+      <th>Departs</th>
+      <th>Arrives</th>
+      <th>Date</th>
+      <th>Departure</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= flight.id %></td>
+      <td><%= flight.departure_airport.code %></td>
+      <td><%= flight.arrival_airport.code %></td>
+      <td><%= flight.date %></td>
+      <td><%= flight.time %></td>
+      <td><%= flight.duration %></td>
+    </tr>
+  </tbody>
+</table>
