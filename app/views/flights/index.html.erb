@@ -1,24 +1,25 @@
 <h2>flight-booker</h2>
 
-<h3>search</h3>
+<h3>Filter</h3>
 
 <%#= simple_form_for(@flight, url: flights_path, method: :get, local: true) do |f| %>
 <%= simple_form_for(:flight, url: flights_path, method: :get, local: true) do |f| %>
-<%# <%= simple_form_for(:flight, method: :get, local: true) do |f| %>
+<%#= simple_form_for(:flight, method: :get, local: true) do |f| %>
 <%#= simple_form_for :flight do |f| %>
   <%= f.input :departure_airport_id, collection: Airport.all.map { |airport| airport.code } %>
   <%= f.input :arrival_airport_id, collection: Airport.all.map { |airport| airport.code } %>
-  <%= f.input :passengers, collection: [1, 2, 3, 4, 5, 6, 7, 8, 9] %>
   <%= f.input :date, collection: Flight.all.map { |flight| flight.date }.uniq %>  
-  <%#= f.button :submit, 'Search', id: 'search-button' %>
+  <%= f.input :passengers, collection: [1, 2, 3, 4, 5, 6, 7, 8, 9] %>
   <%= f.button :submit, 'Search' %>
 <% end %>
 
-<h3>results</h3>
+<h3>Flights</h3>
 
 <% if @flights %>
 
-  <h4><%= pluralize(@flights.length, 'flight') %> matched your search</h4>
+  <% if params[:flight].present? %>
+    <h4><%= pluralize(@flights.length, 'flight') %> matched your search</h4>
+  <% end %>
 
   <table>
     <thead>
@@ -40,13 +41,14 @@
           <td><%= flight.arrival_airport.code %></td>
           <td><%= flight.date %></td>
           <td><%= flight.time.strftime('%I:%M %p') %></td>
-          <td><%= flight.duration / 60 %>:<%= flight.duration % 60 %></td>
-          <td class='td-booking'>
-            <%= button_to 'Book Flight',
-                new_booking_path,
-                method: :get,
-                params: { flight_id: flight.id, tickets: params[:flight][:tickets] },
-                id: 'booking-button' %>
+          <td><%= flight.duration / 60 %>:<%= format('%02d', flight.duration % 60) %></td>
+          <td>
+          <% if params[:flight].present? %>
+          <%= button_to 'Book Flight',
+                  new_booking_path,
+                  method: :get,
+                  params: { flight_id: flight.id, tickets: params[:flight][:passengers] } %>
+          <% end %>
           </td>
         </tr>
       <% end %>

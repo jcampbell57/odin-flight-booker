@@ -34,6 +34,6 @@ class FlightsController < ApplicationController
   end
 
   # def search_params
-  # params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :date, :passengers)
+  #   params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :date, :passengers)
   # end
 end
