@@ -16,8 +16,8 @@
       <td><%= flight.departure_airport.code %></td>
       <td><%= flight.arrival_airport.code %></td>
       <td><%= flight.date %></td>
-      <td><%= flight.time %></td>
-      <td><%= flight.duration %></td>
+      <td><%= flight.time.strftime('%I:%M %p') %></td>
+      <td><%= flight.duration / 60 %>:<%= flight.duration % 60 %></td>
     </tr>
   </tbody>
 </table>

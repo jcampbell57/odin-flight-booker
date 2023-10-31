@@ -8,7 +8,7 @@
 <p>Flight ID: <%= @flight.id %></p>
 <p>Leaving From: <%= @flight.departure_airport.code %></p>
 <p>Arriving At: <%= @flight.arrival_airport.code %></p>
-<p>Departure Time: <%= @flight.time.strftime('%d/%m/%Y %I:%M%P') %></p>
+<p>Departure Time: <%= @flight.time.strftime('%I:%M %p') %></p>
 
 <h3>Passenger information:</h3>
 
