@@ -2,9 +2,9 @@
   <thead>
     <tr>
       <th>Flight #</th>
+      <th>Date</th>
       <th>Departs</th>
       <th>Arrives</th>
-      <th>Date</th>
       <th>Departure</th>
       <th>Duration</th>
     </tr>
@@ -13,11 +13,11 @@
   <tbody>
     <tr>
       <td><%= flight.id %></td>
+      <td><%= flight.date %></td>
       <td><%= flight.departure_airport.code %></td>
       <td><%= flight.arrival_airport.code %></td>
-      <td><%= flight.date %></td>
       <td><%= flight.time.strftime('%I:%M %p') %></td>
-      <td><%= flight.duration / 60 %>:<%= format('%02d', flight.duration % 60) %></td>
+      <td><%= flight.formatted_duration %></td>
     </tr>
   </tbody>
 </table>

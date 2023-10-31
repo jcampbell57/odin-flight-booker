@@ -6,4 +6,8 @@ class Flight < ApplicationRecord
 
   has_many :bookings
   has_many :passengers, through: :bookings
+
+  def formatted_duration
+    '%d:%02d' % duration.divmod(60)
+  end
 end
