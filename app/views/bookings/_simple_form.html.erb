@@ -1,0 +1,12 @@
+<%# alternative to _form.html.erb %>
+<%= simple_form_for(@booking, method: :post) do |form| %>
+  <%= form.hidden_field :flight_id, value: @flight.id %>
+  <%= form.fields_for :passengers do |subform| %>
+    <fieldset>
+      <legend>Passenger #<%= subform.index + 1 %></legend>
+      <%= subform.input :name %>
+      <%= subform.input :email %>
+    </fieldset>
+  <% end %>
+  <%= form.submit 'Create Booking' %>
+<% end %>

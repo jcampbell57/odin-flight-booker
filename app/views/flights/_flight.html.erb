@@ -1,23 +1,7 @@
-<table>
-  <thead>
-    <tr>
-      <th>Flight #</th>
-      <th>Date</th>
-      <th>Departs</th>
-      <th>Arrives</th>
-      <th>Departure</th>
-      <th>Duration</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td><%= flight.id %></td>
-      <td><%= flight.date %></td>
-      <td><%= flight.departure_airport.code %></td>
-      <td><%= flight.arrival_airport.code %></td>
-      <td><%= flight.time.strftime('%I:%M %p') %></td>
-      <td><%= flight.formatted_duration %></td>
-    </tr>
-  </tbody>
-</table>
+<%# alternative to _flight_as_table.html.erb %>
+<p>Flight #: <%= flight.id %></p>
+<p>Date: <%= flight.date %></p>
+<p>Leaving from: <%= flight.departure_airport.code %></p>
+<p>Arriving to: <%= flight.arrival_airport.code %></p>
+<p>Departure time: <%= flight.time.strftime('%I:%M %p') %></p>
+<p>Flight duration: <%= flight.formatted_duration %></p>

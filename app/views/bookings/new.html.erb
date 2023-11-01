@@ -1,56 +1,13 @@
 <h2>Finalize your booking!</h2>
 
-<%= render 'flights/flight', flight: @flight %>
-
-<br>OR
-
 <h3>Selected flight information:</h3>
-<p>Flight #: <%= @flight.id %></p>
-<p>Date: <%= @flight.date %></p>
-<p>Leaving from: <%= @flight.departure_airport.code %></p>
-<p>Arriving to: <%= @flight.arrival_airport.code %></p>
-<p>Departure time: <%= @flight.time.strftime('%I:%M %p') %></p>
-<p>Flight duration: <%= @flight.formatted_duration %></p>
+
+<%= render 'flights/flight', flight: @flight %>
 
 <h3>Passenger information:</h3>
 
-<%= form_with model: @booking, method: :post do |form| %>
+<%= render 'form' %>
 
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<br><b>OR</b><br><br>
 
-      <ul>
-        <% @booking.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form.hidden_field :flight_id, value: @flight.id %>
-
-  <%= form.fields_for :passengers do |subform| %>
-    <fieldset>
-      <legend>Passenger #<%= subform.index + 1 %></legend>
-      <%= subform.label :name %>
-      <%= subform.text_field :name, label: 'Passenger Name:', required: true %>
-      <%= subform.label :email %>
-      <%= subform.email_field :email, label: 'Passenger Email:', required: true %>
-    </fieldset>
-  <% end %>
-  
-  <%= form.submit 'Book!' %>
-<% end %>
-
-<br>OR<br><br>
-
-<%= simple_form_for @booking do |form| %>
-  <%= form.hidden_field :flight_id, value: @flight.id %>
-  <%= form.fields_for :passengers do |subform| %>
-    <h4>Passenger Details</h4>
-    <%= subform.input :name, label: 'Passenger Name:', required: true %>
-    <%= subform.input :email, label: 'Passenger Email:', required: true %>
-  <% end %>
-  <%= form.submit 'Create Booking' %>
-<% end %>
+<%= render 'simple_form' %>
