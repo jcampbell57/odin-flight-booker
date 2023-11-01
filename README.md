@@ -20,6 +20,7 @@ More project info:
 I found these resources helpful during this project:
 * https://shaqqour.medium.com/how-to-create-a-model-with-two-foreign-keys-references-from-the-same-table-in-rails-1d0ebc744544
 * https://stackoverflow.com/questions/39056615/after-destroying-all-records-why-are-new-objects-being-created-with-an-id-higher
+* https://stackoverflow.com/questions/31820352/at-forms-required-true-is-not-working
 * https://github.com/andrewjh271/odin_flight_booker/
 * https://chat.openai.com/
 
