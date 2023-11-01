@@ -47,7 +47,7 @@
           <%= button_to 'Book Flight',
                   new_booking_path,
                   method: :get,
-                  params: { flight_id: flight.id, tickets: params[:flight][:passengers] } %>
+                  params: { flight_id: flight.id, passengers: params[:flight][:passengers] } %>
           <% end %>
           </td>
         </tr>
