@@ -35,3 +35,7 @@ Misc terminal setup:
 * rails g model Booking flight:references
 * rails g model Passenger name:string email:string:index
 * rails g controller Bookings new create show
+* rails g migration CreateJoinTableBookingPassenger booking passenger
+
+This project could be improved:
+* by adding styling
