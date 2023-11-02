@@ -24,16 +24,7 @@ class FlightsController < ApplicationController
 
   private
 
-  # search_params is designed to build the Flight object that will populate the search params
-  # on a redirect after a search (it includes :tickets which is not in the db table)
-
-  # flight_params is used to query the database
-
   def flight_params
     params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :date)
   end
-
-  # def search_params
-  #   params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :date, :passengers)
-  # end
 end

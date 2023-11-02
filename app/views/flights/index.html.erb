@@ -2,10 +2,7 @@
 
 <h3>Filter</h3>
 
-<%#= simple_form_for(@flight, url: flights_path, method: :get, local: true) do |f| %>
 <%= simple_form_for(:flight, url: flights_path, method: :get, local: true) do |f| %>
-<%#= simple_form_for(:flight, method: :get, local: true) do |f| %>
-<%#= simple_form_for :flight do |f| %>
   <%= f.input :departure_airport_id, collection: Airport.all.map { |airport| airport.code } %>
   <%= f.input :arrival_airport_id, collection: Airport.all.map { |airport| airport.code } %>
   <%= f.input :date, collection: Flight.all.map { |flight| flight.date }.uniq %>  
