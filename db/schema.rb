@@ -46,17 +46,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_29_025218) do
     t.string "name"
     t.string "email"
     t.bigint "booking_id", null: false
-    t.bigint "flight_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_passengers_on_booking_id"
     t.index ["email"], name: "index_passengers_on_email", unique: true
-    t.index ["flight_id"], name: "index_passengers_on_flight_id"
   end
 
   add_foreign_key "bookings", "flights"
   add_foreign_key "flights", "airports", column: "arrival_airport_id"
   add_foreign_key "flights", "airports", column: "departure_airport_id"
   add_foreign_key "passengers", "bookings"
-  add_foreign_key "passengers", "flights"
 end

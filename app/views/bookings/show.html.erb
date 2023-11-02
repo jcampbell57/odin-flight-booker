@@ -1,2 +1,15 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Booking information</h1>
+
+<h3>Flight information:</h3>
+
+<%= render 'flights/flight', flight: @booking.flight %>
+
+<h3><%= pluralize(@booking.passengers.count, "Passenger") %>:</h3>
+
+<% @booking.passengers.each_with_index do |passenger, index| %>
+  <h4>Passenger <%= index + 1 %>:</h4>
+  <p>Name: <%= passenger.name %></p>
+  <p>Email: <%= passenger.email %></p>
+<% end %>
+
+<%= link_to 'Return to search', root_path %>
