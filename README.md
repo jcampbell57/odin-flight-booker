@@ -12,6 +12,7 @@ This app makes use of:
 I hope to gain more familiarity with:
 * Rails associations
 * the simple-form gem
+* stimulus
 
 More project info:
 * Ruby version 3.2.2
@@ -39,6 +40,7 @@ Misc terminal setup:
 * rails g model Passenger name:string email:string:index
 * rails g controller Bookings new create show
 * rails g migration CreateJoinTableBookingPassenger booking passenger
+* rails g stimulus passenger
 
 This project could be improved:
 * by adding styling
