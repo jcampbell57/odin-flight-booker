@@ -1,4 +1,5 @@
 <%# alternative to _simple_form.html.erb %>
+<%# does not include add / remove passenger, but _simple_form.html.erb does %>
 <%= form_with model: @booking, method: :post do |form| %>
 
   <% if @booking.errors.any? %>
