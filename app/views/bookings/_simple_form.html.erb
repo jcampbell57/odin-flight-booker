@@ -1,12 +1,41 @@
 <%# alternative to _form.html.erb %>
-<%= simple_form_for(@booking, method: :post) do |form| %>
-  <%= form.hidden_field :flight_id, value: @flight.id %>
-  <%= form.fields_for :passengers do |subform| %>
-    <fieldset>
-      <legend>Passenger #<%= subform.index + 1 %></legend>
-      <%= subform.input :name, input_html: { required: true } %>
-      <%= subform.input :email, input_html: { required: true } %>
-    </fieldset>
+<div id = 'passengerForm' data-controller = "passenger">
+
+  <%= simple_form_for(@booking, method: :post) do |form| %>
+    <%= form.hidden_field :flight_id, value: @flight.id %>
+
+    <div data-passenger-target = 'passengerInfo'>
+      <%= form.fields_for :passengers do |subform| %>
+        <fieldset>
+          <legend>Passenger #<%= subform.index + 1 %></legend>
+          <%= subform.input :name, input_html: { required: true } %>
+          <%= subform.input :email, input_html: { required: true } %>
+        </fieldset>
+      <% end %>
+    </div>
+    
+    <br>
+    
+    <%= form.fields_for :passengers do |subform| %>
+      <template data-passenger-target = 'passengerTemplate'>
+        <fieldset>
+          <legend>Passenger #<%= subform.index + 1 %></legend>
+          <%= subform.input :name, input_html: { required: true } %>
+          <%= subform.input :email, input_html: { required: true } %>
+        </fieldset>
+      </template>
+    <% end %>
+
+    <button type="button" data-action="click->passenger#add">Add Passenger</button>
+    <button type="button" data-action="click->passenger#remove">Remove Passenger</button>
+    
+    <br><br>
+    
+    <span data-passenger-target = "error"></span>
+
+    <br><br>
+
+    <%= form.submit 'Create Booking' %>
   <% end %>
-  <%= form.submit 'Create Booking' %>
-<% end %>
+
+</div>
