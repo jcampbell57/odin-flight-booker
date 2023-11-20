@@ -4,14 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ 'error',
                      'passengerInfo',
-                     'passengerTemplate',
-                     'passengerCount',
-                     'passengerIndex' ]
+                     'passengerTemplate' ]
 
   connect() {
     console.log('Hello from passenger controller!')
     this.passengerCount = this.passengerInfoTarget.childElementCount
-
   }
 
   add() {
@@ -32,9 +29,9 @@ export default class extends Controller {
   remove() {
     if (this.passengerCount > 1) {
       this.errorTarget.textContent = ''
-      this.passengerCountValue--
+      this.passengerCount--
 
-      this.passengerInfoTarget.children[this.passengerCount - 1].remove()
+      this.passengerInfoTarget.children[this.passengerCount].remove()
     } else {
       this.errorTarget.textContent = 'There must be at least one passenger.'
     }
