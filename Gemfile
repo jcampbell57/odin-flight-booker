@@ -73,3 +73,5 @@ end
 gem 'simple_form'
 # needed by simple-form
 gem 'country_select'
+
+gem "letter_opener", group: :development
