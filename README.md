@@ -34,8 +34,10 @@ Misc terminal setup:
 * rails g stimulus passenger
 * rails g mailer PassengerMailer
 
-This project could be improved:
-* by adding styling
+This project could be improved by:
+* adding styling.
+* setting up SendGrid to send emails in production.
+* deploying to a hosting provider.
 
 I found these resources helpful during this project:
 * https://shaqqour.medium.com/how-to-create-a-model-with-two-foreign-keys-references-from-the-same-table-in-rails-1d0ebc744544
