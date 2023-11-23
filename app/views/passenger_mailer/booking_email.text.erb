@@ -1,0 +1,16 @@
+Hello, <%= @passenger.name %>!
+===============================================
+
+You have successfully booked your fake flight!
+    
+Flight information:
+- Flight id: <%= @flight.id %>
+- Flight duration: <%= @flight.formatted_duration %>
+- Flight date: <%= @flight.date %>
+- Flight time: <%= @flight.time.strftime('%I:%M %p') %>
+- Departure airport: <%= @flight.departure_airport.code %> - <%= @flight.departure_airport.name %>
+- Arrival airport: <%= @flight.arrival_airport.code %> - <%= @flight.arrival_airport.name %>
+
+If you would like to book another flight, just follow this link: <%= @url %>.
+
+Thank you for booking with us and have a great day!

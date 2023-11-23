@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Hello, <%= @passenger.name %>!</h2>
+    <p>
+      You have successfully booked your fake flight!<br><br>
+      
+      Flight information:<br>
+      - Flight id: <%= @flight.id %><br>
+      - Flight duration: <%= @flight.duration %><br>
+      - Flight date: <%= @flight.date %><br>
+      - Flight time: <%= @flight.time.strftime('%I:%M %p') %><br>
+      - Departure airport: <%= @flight.departure_airport.code %> - 
+                           <%= @flight.departure_airport.name %><br>
+      - Arrival airport: <%= @flight.arrival_airport.code %> - 
+                         <%= @flight.arrival_airport.name %><br>
+    </p>
+    <p>
+      If you would like to book another flight, just follow this link: <%= @url %>.
+    </p>
+    <p>Thank you for booking with us and have a great day!</p>
+  </body>
+</html>

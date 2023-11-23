@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find(booking_params[:flight_id])
     @booking = @flight.bookings.new(booking_params)
 
-    # Iterate through the passengers and check if a passenger with the same email exists
+    # check if a passenger with the same email exists
     @booking.passengers.each do |passenger|
       existing_passenger = Passenger.find_by(email: passenger.email)
       next unless existing_passenger
@@ -21,6 +21,11 @@ class BookingsController < ApplicationController
     end
 
     if @booking.save
+      # send booking information email
+      @booking.passengers.each do |passenger|
+        PassengerMailer.with(passenger:).booking_email.deliver_now
+      end
+
       redirect_to booking_path(@booking), notice: 'Booking created!'
       # redirect_to @booking, notice: 'Booking created!'
     else
